@@ -1,0 +1,109 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #121212; 
+  color: white; 
+  margin-top: 30px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.content {
+  margin-top: 80px; 
+}
+
+
+.chart-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin: 20px auto;
+  max-width: 1300px;
+}
+
+.chart-container > div {
+  flex: 1 1 30%;
+  min-width: 280px;
+  background: rgba(255, 255, 255, 0.1); 
+  border-radius: 18px;
+  padding: 25px;
+  box-sizing: border-box;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2); 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.chart-container > div:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+}
+
+.chart-container > div::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+  border-radius: 20px;
+}
+
+.chart-container > div h3 {
+  font-size: 1.5rem;
+  color: white; 
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #ffffff, #cccccc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.chart-container > div {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-in-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chart-container > div .chart {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 220px;
+}
+
+@media (max-width: 1024px) {
+  .chart-container > div {
+    flex: 1 1 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .chart-container > div {
+    flex: 1 1 100%;
+  }
+}
+
